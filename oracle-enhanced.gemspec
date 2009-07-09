@@ -1,13 +1,13 @@
 # encoding: utf-8
 
 Gem::Specification.new do |s|
-  s.name = %q{activerecord-oracle_enhanced-adapter}
+  s.name = %q{activerecord-oracle_enhanced-adapter-nvarchar2}
   s.version = "1.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Raimonds Simanovskis"]
   s.date = %q{2009-06-07}
-  s.description = %q{Oracle enhanced adapter for ActiveRecord}
+  s.description = %q{Oracle enhanced adapter for ActiveRecord (change varchar2 to nvarchar2)}
   s.email = ["raimonds.simanovskis@gmail.com"]
   s.extra_rdoc_files = ["History.txt", "License.txt", "Manifest.txt", "README.rdoc"]
   s.files = ["History.txt", "License.txt", "Manifest.txt", "README.rdoc",
