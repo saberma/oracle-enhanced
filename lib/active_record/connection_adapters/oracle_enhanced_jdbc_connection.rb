@@ -291,7 +291,7 @@ module ActiveRecord
           else
             BigDecimal.new(d.stringValue)
           end
-        when :VARCHAR2, :CHAR, :LONG
+        when :NVARCHAR2, :CHAR, :LONG
           rset.getString(i)
         when :DATE
           if dt = rset.getDATE(i)

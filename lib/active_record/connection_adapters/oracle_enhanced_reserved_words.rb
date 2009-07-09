@@ -107,7 +107,7 @@ module ActiveRecord #:nodoc:
         "VALIDATE" => true,
         "VALUES" => true,
         "VARCHAR" => true,
-        "VARCHAR2" => true,
+        "NVARCHAR2" => true,
         "VIEW" => true,
         "WHENEVER" => true,
         "WHERE" => true,
