@@ -276,13 +276,13 @@ module ActiveRecord
         name =~ /(^|_)id$/i
       end
 
-      # RSI: set to true if CHAR(1), VARCHAR2(1) columns or VARCHAR2 columns with FLAG or YN at the end of their name
+      # RSI: set to true if CHAR(1), NVARCHAR2(1) columns or NVARCHAR2 columns with FLAG or YN at the end of their name
       # should be emulated as booleans
       @@emulate_booleans_from_strings = false
       cattr_accessor :emulate_booleans_from_strings
       def self.is_boolean_column?(name, field_type, table_name = nil)
-        return true if ["CHAR(1)","VARCHAR2(1)"].include?(field_type)
-        field_type =~ /^VARCHAR2/ && (name =~ /_flag$/i || name =~ /_yn$/i)
+        return true if ["CHAR(1)","NVARCHAR2(1)"].include?(field_type)
+        field_type =~ /^NVARCHAR2/ && (name =~ /_flag$/i || name =~ /_yn$/i)
       end
       def self.boolean_to_string(bool)
         bool ? "Y" : "N"
@@ -303,7 +303,7 @@ module ActiveRecord
       def native_database_types #:nodoc:
         {
           :primary_key => "NUMBER(38) NOT NULL PRIMARY KEY",
-          :string      => { :name => "VARCHAR2", :limit => 255 },
+          :string      => { :name => "NVARCHAR2", :limit => 255 },
           :text        => { :name => "CLOB" },
           :integer     => { :name => "NUMBER", :limit => 38 },
           :float       => { :name => "NUMBER" },
@@ -315,9 +315,9 @@ module ActiveRecord
           :time        => { :name => "DATE" },
           :date        => { :name => "DATE" },
           :binary      => { :name => "BLOB" },
-          # RSI: if emulate_booleans_from_strings then store booleans in VARCHAR2
+          # RSI: if emulate_booleans_from_strings then store booleans in NVARCHAR2
           :boolean     => emulate_booleans_from_strings ?
-            { :name => "VARCHAR2", :limit => 1 } : { :name => "NUMBER", :limit => 1 }
+            { :name => "NVARCHAR2", :limit => 1 } : { :name => "NUMBER", :limit => 1 }
         }
       end
 
@@ -651,7 +651,7 @@ module ActiveRecord
           select column_name as name, data_type as sql_type, data_default, nullable,
                  decode(data_type, 'NUMBER', data_precision,
                                    'FLOAT', data_precision,
-                                   'VARCHAR2', data_length,
+                                   'NVARCHAR2', data_length,
                                    'CHAR', data_length,
                                     null) as limit,
                  decode(data_type, 'NUMBER', data_scale, null) as scale
