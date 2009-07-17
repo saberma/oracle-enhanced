@@ -1,6 +1,6 @@
 # oracle_enhanced_adapter.rb -- ActiveRecord adapter for Oracle 8i, 9i, 10g, 11g
 #
-# Authors or original oracle_adapter: Graham Jenkins, Michael Schoen
+# Authors or original oracle_adapter: Graham Jenkins, Michael Schoen(Cool)
 #
 # Current maintainer: Raimonds Simanovskis (http://blog.rayapps.com)
 #
