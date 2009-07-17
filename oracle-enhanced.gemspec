@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 Gem::Specification.new do |s|
-  s.name = %q{saberma-activerecord-oracle_enhanced-adapter-nvarchar2}
+  s.name = %q{activerecord-oracle_enhanced-adapter-nvarchar2}
   s.version = "1.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
